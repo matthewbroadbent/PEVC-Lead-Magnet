@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Alpha Algorithm: AI-Driven Intelligence for Private Equity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: #212529;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid rgba(0,178,169,0.1);
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 0;
+            min-height: 600px;
+        }
+
+        .hero-left {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-right {
+            background: linear-gradient(135deg, #0A2342 0%, #00B2A9 100%);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo .nor {
+            color: #0A2342;
+        }
+
+        .logo .i {
+            color: #00B2A9;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .logo .vane {
+            color: #0A2342;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #0A2342;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #212529;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .value-points {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .value-points li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .value-points li::before {
+            content: '✓';
+            color: #00B2A9;
+            font-weight: 700;
+            font-size: 18px;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        .form-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            padding: 15px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .submit-btn {
+            background: white;
+            color: #0A2342;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .privacy-note {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        .success-message {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            background: rgba(220,53,69,0.1);
+            border: 2px solid rgba(220,53,69,0.3);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .preview-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,178,169,0.1);
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+
+        .preview-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0A2342;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .preview-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid #00B2A9;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+        }
+
+        .preview-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0A2342;
+            margin-bottom: 15px;
+        }
+
+        .preview-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #212529;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, rgba(0,178,169,0.05) 0%, rgba(10,35,66,0.02) 100%);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            border: 2px solid rgba(0,178,169,0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #00B2A9;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #00B2A9 0%, #0A2342 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(10,35,66,0.3);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(10,35,66,0.3);
+            border-radius: 50%;
+            border-top-color: #0A2342;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-right {
+                order: -1;
+            }
+            
+            .hero-left, .hero-right {
+                padding: 40px 30px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .preview-grid, .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .preview-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section with Lead Form -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="logo"><span class="nor">nor</span><span class="i">i</span><span class="vane">vane</span></div>
+                    
+                    <h1 class="hero-title">The Alpha Algorithm</h1>
+                    <p class="hero-subtitle">
+                        Discover how AI-driven intelligence is transforming private equity operations and creating sustainable competitive advantages in today's challenging market.
+                    </p>
+                    
+                    <ul class="value-points">
+                        <li>Navigate record dry powder and intense competition with intelligent automation</li>
+                        <li>Transform deal sourcing from manual screening to AI-powered opportunity identification</li>
+                        <li>Accelerate due diligence with machine-scale document analysis</li>
+                        <li>Create operational alpha across your entire portfolio</li>
+                        <li>Build a proprietary data flywheel for lasting competitive advantage</li>
+                    </ul>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="form-container">
+                        <h2 class="form-title">Download Your Free Copy</h2>
+                        <p class="form-subtitle">Get instant access to this comprehensive 25-page white paper on AI transformation in private equity.</p>
+                        
+                        <form class="lead-form" id="leadForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Mobile Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="Enter your mobile number">
+                            </div>
+                            
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span id="submitText">Download White Paper</span>
+                                <span id="submitSpinner" class="loading-spinner" style="display: none;"></span>
+                            </button>
+                        </form>
+                        
+                        <div class="success-message" id="successMessage">
+                            <h3>Thank You!</h3>
+                            <p>Your white paper is downloading now. Please check your downloads folder.</p>
+                        </div>
+                        
+                        <div class="error-message" id="errorMessage">
+                            <p>There was an error sending your request. Please try again.</p>
+                        </div>
+                        
+                        <p class="privacy-note">
+                            We respect your privacy. Your information will only be used to send you relevant insights about AI in private equity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="preview-section">
+            <h2 class="preview-title">What You'll Discover</h2>
+            
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <h3>The New Competitive Imperative</h3>
+                    <p>Understand how record dry powder, challenging exits, and blunted financial engineering are forcing a fundamental shift towards operational supremacy.</p>
+                </div>
+                
+                <div class="preview-card">
+                    <h3>AI-Powered Investment Lifecycle</h3>
+                    <p>Learn how AI transforms every stage from deal sourcing to exit, with practical applications and real-world ROI examples.</p>
+                </div>
+                
+                <div class="preview-card">
+                    <h3>Beyond the Deal: Firm-Wide Value Creation</h3>
+                    <p>Discover how to activate operational alpha in portfolio companies and build real-time portfolio intelligence systems.</p>
+                </div>
+                
+                <div class="preview-card">
+                    <h3>Bespoke vs Off-the-Shelf AI</h3>
+                    <p>Strategic analysis of why custom AI solutions create lasting competitive advantages over generic tools.</p>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h4>$2.62T</h4>
+                        <p>Record global PE dry powder creating unprecedented deployment pressure</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>5 Years</h4>
+                        <p>Average holding period in 2023-2024, up from 4.2 years previously</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>80%</h4>
+                        <p>Of financial modeling workflow that can be automated with AI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Operations?</h2>
+                <p class="cta-subtitle">
+                    Join the firms building their competitive advantage through AI-driven operational supremacy.
+                </p>
+                
+                <div class="contact-info">
+                    <strong>Get Started Today</strong><br>
+                    <a href="https://norivane.co.uk" target="_blank">www.norivane.com</a> | 
+                    <a href="mailto:us@norivane.com">us@norivane.com</a> | 
+                    <a href="tel:+447356224125">+44 (0) 7356 224 125</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
